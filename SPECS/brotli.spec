@@ -1,6 +1,6 @@
 Name:           brotli
 Version:        1.0.9
-Release:        7.1%{?dist}
+Release:        7.2%{?dist}
 Summary:        Lossless compression algorithm
 
 License:        MIT
@@ -11,6 +11,7 @@ Patch0:        09b0992b6acb7faa6fd3b23f9bc036ea117230fc.patch
 Patch1:         RHEL-32153-kBrotliBitMask-bounds.patch
 
 Patch1001:    CVE-2025-6176.patch
+Patch1002:    brotli-1.0-CVE-2026-111497.patch
 
 %if 0%{?rhel} == 7
 BuildRequires:  devtoolset-7-toolchain, devtoolset-7-libatomic-devel
@@ -142,6 +143,9 @@ done
 
 
 %changelog
+* Mon Oct 26 2026 Pratham Patel <ppatel@ciq.com> - 1.0.9-7.2
+- Fix CVE-2026-111497 (upstream patch: https://github.com/google/brotli/commit/50a9b70a4d5e1443fc40927952276b68fffa83a0)
+
 * Wed Jul 01 2026 Pratham Patel <ppatel@ciq.com> - 1.0.9-7.1
 - Fix CVE-2025-6176
 
